@@ -1,4 +1,4 @@
-# CRUD Contacts API with FastAPI & SQLAlchemy 📇
+# ReactFast Contacts 📇
 
 ![Python](https://img.shields.io/badge/python-3776AB.svg?&style=for-the-badge&logo=python&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-323330.svg?&style=for-the-badge&logo=javascript&logoColor=F7DF1E)
@@ -9,7 +9,7 @@
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-gray.svg?&style=for-the-badge&logo=tailwindcss&logoColor=06B6D4)
 ![Prettier](https://img.shields.io/badge/prettier-F7B93E.svg?&style=for-the-badge&logo=prettier&logoColor=white)
 
-An CRUD contact 📇 API built on Fast API with a SQLite database using SQLAlchemy. With a React FE to allow for user interaction.
+A fullstack CRUD application built with FastAPI, SQLite for the backend and React with TailwindCSS for the user interface.
 
 ![UI](images/ui.png)
 
