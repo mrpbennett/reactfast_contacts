@@ -1,4 +1,4 @@
-# ReactFast Contacts 📇
+# :zap: ReactFast Contacts
 
 ![Python](https://img.shields.io/badge/python-3776AB.svg?&style=for-the-badge&logo=python&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-323330.svg?&style=for-the-badge&logo=javascript&logoColor=F7DF1E)
@@ -13,7 +13,7 @@ A fullstack CRUD application built with FastAPI, SQLite for the backend and Reac
 
 ![UI](images/ui.png)
 
-## Run Locally
+## Run Locally 💻
 
 First clone the whole repo.
 
