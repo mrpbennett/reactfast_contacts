@@ -6,7 +6,7 @@
 
 This is a React Front End to harness the FastAPI of the backend, and display its data. The front end also allows for user intereaction, enabling the user to create / delete and edit contact entries.
 
-## Run Locally
+## Run Locally 💻
 
 After cloning the whole repo to where ever you have chosen to do so. You will need to enter the directory of the front end like so:
 
