@@ -4,9 +4,9 @@
 ![SQLite](https://img.shields.io/badge/sqlite-003B57.svg?&style=for-the-badge&logo=sqlite&logoColor=white)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg?style=for-the-badge)](https://github.com/psf/black)
 
-An CRUD contact 📇 API built on Fast API with a SQLite database using SQLAlchemy.
+An CRUD contact API built on Fast API with a SQLite database using SQLAlchemy.
 
-## Run Locally
+## Run Locally 💻
 
 Go to the project directory
 
@@ -42,11 +42,11 @@ Start the server
 
 This will start the server so you can test the API at `localhost:8000`
 
-## Documentation
+## Documentation 📚
 
 Documentation will be located at `localhost:8000/redocs` once the server is up and running. But for when it's not here is a breif overview.
 
-### CREATE
+### CREATE :unicorn:
 
 The `CREATE` endpoint will allow you to send JSON creating a new contact
 
@@ -67,7 +67,7 @@ Sending `JSON` in the message body like so below will create a new conact:
 }
 ```
 
-### READ
+### READ 🤓
 
 There are two `READ` endpoints they are:
 
@@ -83,7 +83,7 @@ localhost:8000/get-contact/{contact_id}
 
 This will return a contact by its `ID`
 
-### UPDATE
+### UPDATE ⤴️
 
 The `UPDATE` endpoint is similar to the create endpoint. This allows you to change contact information by `contact_id`
 
@@ -102,7 +102,7 @@ localhost:8000/update-contact/{contact_id}
 }
 ```
 
-### DELETE
+### DELETE ❎
 
 The `DELETE` endpoint allows you to delete a contact entry via it's ID
 
