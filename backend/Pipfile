@@ -9,6 +9,7 @@ fastapi = {extras = ["all"], version = "*"}
 requests = "*"
 sqlalchemy = "*"
 psycopg2-binary = "*"
+i = "*"
 
 [dev-packages]
 

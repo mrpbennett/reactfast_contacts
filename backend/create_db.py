@@ -1,5 +1,5 @@
 """ database creation """
-from db import Base, Session, engine
+from db import Base, SessionLocal, engine
 from models import Contact
 
 print("creating database...")
@@ -7,7 +7,7 @@ print("creating database...")
 Base.metadata.create_all(engine)
 
 
-db = Session()
+db = SessionLocal()
 
 db.add_all(
     [

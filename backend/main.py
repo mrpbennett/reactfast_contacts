@@ -1,12 +1,13 @@
 """API for contact database"""
 from typing import List, Optional
 
-from fastapi import FastAPI, HTTPException, status
+from fastapi import Depends, FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from sqlalchemy.orm import Session
 
 import models
-from db import Session
+from db import SessionLocal
 
 app = FastAPI()
 
@@ -43,11 +44,17 @@ class Contact(BaseModel):
         orm_mode = True
 
 
-db = Session()
+def get_db():
+    """creates seperate sessions for each request"""
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
 
 
 @app.get("/all-contacts", response_model=List[Contact], status_code=status.HTTP_200_OK)
-def get_all_contacts():
+def get_all_contacts(db: Session = Depends(get_db)):
     """READ: Get all contacts"""
     return db.query(models.Contact).all()
 
@@ -55,7 +62,7 @@ def get_all_contacts():
 @app.get(
     "/get-contact/{contact_id}", response_model=Contact, status_code=status.HTTP_200_OK
 )
-def get_contact(contact_id: int):
+def get_contact(contact_id: int, db: Session = Depends(get_db)):
     """READ: Get a contact by id"""
     return db.query(models.Contact).filter(models.Contact.id == contact_id).first()
 
@@ -63,7 +70,7 @@ def get_contact(contact_id: int):
 @app.post(
     "/create-contact", response_model=Contact, status_code=status.HTTP_201_CREATED
 )
-def create_contact(contact: Contact):
+def create_contact(contact: Contact, db: Session = Depends(get_db)):
     """CREATE: Create a new contact"""
 
     db_contact = (
@@ -106,7 +113,7 @@ def create_contact(contact: Contact):
     response_model=Contact,
     status_code=status.HTTP_200_OK,
 )
-def update_contact(contact_id: int, contact: Contact):
+def update_contact(contact_id: int, contact: Contact, db: Session = Depends(get_db)):
     """UPDATE: Update a contact"""
     contact_to_update = (
         db.query(models.Contact).filter(models.Contact.id == contact_id).first()
@@ -126,7 +133,7 @@ def update_contact(contact_id: int, contact: Contact):
 
 
 @app.delete("/delete-contact/{contact_id}")
-def delete_contact(contact_id: int):
+def delete_contact(contact_id: int, db: Session = Depends(get_db)):
     """DELETE: Delete a contact"""
     contact_to_delete = (
         db.query(models.Contact).filter(models.Contact.id == contact_id).first()
